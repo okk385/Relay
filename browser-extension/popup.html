@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Relay Browser</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Relay</h1>
+        <span id="status-dot" aria-hidden="true"></span>
+      </header>
+
+      <label>
+        GitHub repository
+        <input id="repository" placeholder="owner/repo" autocomplete="off" />
+      </label>
+
+      <label>
+        Fine-grained GitHub token
+        <input id="github-token" type="password" placeholder="Stored only in this browser profile" />
+      </label>
+
+      <label>
+        Poll interval (seconds)
+        <input id="poll-interval" type="number" min="30" step="30" value="60" />
+      </label>
+
+      <label class="checkbox-row">
+        <input id="enabled" type="checkbox" checked />
+        Enable automatic handoffs
+      </label>
+
+      <div class="button-grid">
+        <button id="save">Save</button>
+        <button id="bind">Bind this ChatGPT tab</button>
+        <button id="poll">Poll now</button>
+        <button id="test">Test message</button>
+      </div>
+
+      <section>
+        <strong>Bound conversation</strong>
+        <p id="bound-url">Not bound</p>
+      </section>
+
+      <section>
+        <strong>Last status</strong>
+        <p id="status">Loading…</p>
+      </section>
+
+      <button id="clear" class="secondary">Clear local handoff state</button>
+      <p class="note">Relay inserts messages only. It never reads ChatGPT responses.</p>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

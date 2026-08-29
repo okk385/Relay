@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Relay Browser",
+  "version": "0.1.0",
+  "description": "Deliver GitHub Relay handoffs into one user-bound ChatGPT conversation.",
+  "permissions": ["storage", "alarms", "tabs", "notifications"],
+  "host_permissions": [
+    "https://api.github.com/*",
+    "https://chatgpt.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Relay Browser",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

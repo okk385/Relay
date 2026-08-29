@@ -1,0 +1,10 @@
+{
+  "name": "relay-browser",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test browser-extension/tests/*.test.js",
+    "check": "node --check browser-extension/background.js && node --check browser-extension/content.js && node --check browser-extension/popup.js && node --check browser-extension/lib.js"
+  }
+}
